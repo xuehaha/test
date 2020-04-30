@@ -40,7 +40,7 @@ export default {
             {"txt":"ccccc"}
         ],
         dtime:"2018-1-1 10:00:00",
-        dataStr:"1231d2f31a31f3s1d3f132sf",
+        dataStr:"1231d2f31a31f3s",
         dataNum:12313123123132132,
         titleArr:["商品","参数","图片"]
     }
