@@ -47,7 +47,7 @@ export default {
 
   },
   mounted(){
-        // 点击事件不能时时监听scroll、aaaaaaa
+        // 点击事件不能时时监听scroll、
         // window.addEventListener('scroll', this.toPosition);
   },
   methods:{
