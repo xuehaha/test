@@ -7,6 +7,7 @@ import NewsList from '@/view/NewsList'
 import NewsInfo from '@/view/NewsInfo'
 import Search from '@/view/Search'
 import Login from '@/view/Login'
+import Test1 from '@/view/Test'
 
 
 // props 传值
@@ -39,6 +40,7 @@ const router = new Router({
     { path: '/tabs', component: Tabs },
     { path: '/timmer', component: Timmer },
     { path: '/debounce', component: Debounce },
+    { path: '/demo', component: Test1 },
     { path: '/upload', component: Upload }
 
   ],

@@ -26,6 +26,9 @@
         <span><router-link to="/timmer">登录计时器</router-link></span>
         <span><router-link to="/debounce">防抖函数</router-link></span>
       </div>
+      <div class="icon_box">
+        <span><router-link to="/demo">test</router-link></span>
+      </div>
     </div>
 
     <router-view></router-view>

@@ -1,6 +1,6 @@
 <template>
   <div class="debouce">
-      函数防抖用来防止在监听是发送过多无用请求
+      函数防抖用来防止在监听是发送过多无用请求，直接看打印
   </div>
 </template>
 
@@ -27,9 +27,7 @@ export default {
             }).then(res=>{
                 console.log(res)
             })
-
             b();
-            
         }
     }
 }

@@ -1,5 +1,6 @@
 <template>
     <div class="container-flud">
+        <div class="h-44"></div>
         <ul class="float-left">
             <li v-for="(item,index) in items" v-text="item" @click="clk(index)" :key="index"></li>
         </ul>
@@ -9,19 +10,25 @@
         <div>{{dataNum | NumberFormat}}</div>
 
         <div class="title">
-            <div v-for="(item, index) in titleArr" :key="index" @click="toPosition">
+            <div 
+                v-for="(item, index) in titleArr" 
+                :key="index" 
+                @click="toPosition(index)" 
+                :class="{active:index == currentIndex}">
+
                 {{item}}    
             </div>
         </div>
-        <div class="goods" ref="goods">
+        <div class="content" v-for="(item) in list" :key="item">
+            <div :class="item" :ref="item">
+                点击滚动到对应位置。
+            </div>
         </div>
-        <div class="params" ref="params">
-        </div> 
-        <div class="pic" ref="pic">
-        </div>  
+        <div ref="test">
+            test
+        </div>
     </div>
 </template>
-
 <script>
 import filter from "../common/filter"
 export default {
@@ -42,13 +49,17 @@ export default {
         dtime:"2018-1-1 10:00:00",
         dataStr:"1231d2f31a31f3s",
         dataNum:12313123123132132,
-        titleArr:["商品","参数","图片"]
+
+        titleArr:["商品","参数","图片"],
+        list:["goods","params","pic"],
+        currentIndex:0
     }
 
   },
   mounted(){
         // 点击事件不能时时监听scroll、
-        // window.addEventListener('scroll', this.toPosition);
+        window.addEventListener('scroll', this.scroll);
+
   },
   methods:{
     clk(idx){
@@ -60,11 +71,14 @@ export default {
             }
             this.flg = idx;
         },
-    toPosition(){
+    toPosition(index){
+        this.currentIndex = index;
         var goodsTop = this.$refs.goods.offsetTop;
-        var paramsTop = this.$refs.params.offsetTop;
-        var picTop = this.$refs.pic.offsetTop;
-        window.scrollTo(0, paramsTop-40)
+        var itemTop =document.getElementsByClassName(this.list[index])[0].offsetTop;
+        window.scrollTo(0, itemTop-44);
+    },
+    scroll(){
+
     }
   }
 }
@@ -99,6 +113,9 @@ ul li{
     width: 100%;
     top:0;
 }
+.h-44{
+    height:44px;
+}
 .title div{
     flex: 1;
 }
@@ -113,5 +130,8 @@ ul li{
 .pic{
     height: 600px;
     background: cornflowerblue;
+}
+.active{
+    color:crimson;
 }
 </style>
